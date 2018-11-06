@@ -27,10 +27,26 @@ programming in style.
 * [Best Practices](http://github.com/thoughtbot/guides/blob/master/best-practices)
 * [Style](http://github.com/thoughtbot/guides/blob/master/style)
 
-## Deploying
+## Development
+
+To run the application locally, use Docker Compose:
+
+```
+docker-compose up
+```
+
+The application container will respond on `http://localhost:3000`.
+
+## Deployment
 
 If you have previously run the `./bin/setup` script,
 you can deploy to staging and production with:
 
     % ./bin/deploy staging
     % ./bin/deploy production
+
+### Configuration
+
+Environment variables:
+
+* `APPLICATION_HOST`: Production hostname of the application

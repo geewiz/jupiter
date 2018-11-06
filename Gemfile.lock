@@ -51,6 +51,7 @@ GEM
     autoprefixer-rails (9.3.1)
       execjs
     awesome_print (1.8.0)
+    bcrypt (3.1.12)
     bindex (0.5.0)
     bitters (1.8.0)
       bourbon (~> 5.0)
@@ -86,6 +87,10 @@ GEM
     chromedriver-helper (2.1.0)
       archive-zip (~> 0.10)
       nokogiri (~> 1.8)
+    clearance (1.16.1)
+      bcrypt
+      email_validator (~> 1.4)
+      rails (>= 3.1)
     code_analyzer (0.4.8)
       sexp_processor
     coderay (1.1.2)
@@ -104,6 +109,8 @@ GEM
     dotenv-rails (2.5.0)
       dotenv (= 2.5.0)
       railties (>= 3.2, < 6.0)
+    email_validator (1.6.0)
+      activemodel
     erubi (1.7.1)
     erubis (2.7.0)
     execjs (2.7.0)
@@ -171,7 +178,7 @@ GEM
       pry (>= 0.10.4)
     public_suffix (3.0.3)
     puma (3.12.0)
-    rack (2.0.5)
+    rack (2.0.6)
     rack-canonical-host (0.2.3)
       addressable (> 0, < 3)
       rack (>= 1.0.0, < 3)
@@ -334,6 +341,7 @@ DEPENDENCIES
   bundler-audit (>= 0.5.0)
   capybara-selenium
   chromedriver-helper
+  clearance (~> 1.16)
   delayed_job_active_record
   dotenv-rails
   factory_bot_rails
