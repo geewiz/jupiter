@@ -14,7 +14,7 @@ if defined? RSpec
   end
 end
 
-task default: ["bundle:audit", :rubocop, :rbp]
+task default: ["bundle:audit", :rubocop, :rbp, :brakeman]
 
 desc "Run Ruby linter"
 task :rubocop do
@@ -24,4 +24,9 @@ end
 desc "Check for Rails Best Practices"
 task :rbp do
   sh "rails_best_practices ."
+end
+
+desc "Check for security weaknesses"
+task :brakeman do
+  sh "brakeman"
 end
