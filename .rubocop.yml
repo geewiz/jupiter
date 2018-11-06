@@ -1,0 +1,160 @@
+AllCops:
+  TargetRubyVersion: 2.2
+  Include:
+    - '**/config.ru'
+  Exclude:
+    - Gemfile
+    - Guardfile
+    - '**/Rakefile'
+    - 'bin/**/*'
+    - 'db/**/*'
+    - 'config/**/*'
+    - 'vendor/**/*'
+    - '.chef/*'
+    - 'lib/tasks/*.rake'
+
+Metrics/BlockLength:
+  Description: 'Avoid blocks longer than 25 lines of code.'
+  Exclude:
+    - "Rakefile"
+    - "**/*.rake"
+    - "spec/**/*.rb"
+
+Metrics/ClassLength:
+  Description: 'Avoid classes longer than 100 lines of code.'
+  Enabled: false
+
+Metrics/ModuleLength:
+  Description: 'Avoid modules longer than 100 lines of code.'
+  Enabled: false
+
+Style/ClassVars:
+  Description: 'Avoid the use of class variables.'
+  StyleGuide: 'https://github.com/bbatsov/ruby-style-guide#no-class-vars'
+  Enabled: false
+
+Style/CollectionMethods:
+  Enabled: true
+  PreferredMethods:
+    find: detect
+    inject: reduce
+    collect: map
+    find_all: select
+
+Style/Documentation:
+  Description: 'Document classes and non-namespace modules.'
+  Enabled: false
+
+Layout/DotPosition:
+  Description: 'Checks the position of the dot in multi-line method calls.'
+  StyleGuide: 'https://github.com/bbatsov/ruby-style-guide#consistent-multi-line-chains'
+  EnforcedStyle: trailing
+
+Style/Encoding:
+  Enabled: false
+
+Style/GlobalVars:
+  Description: 'Do not introduce global variables.'
+  StyleGuide: 'https://github.com/bbatsov/ruby-style-guide#instance-vars'
+  Reference: 'http://www.zenspider.com/Languages/Ruby/QuickRef.html'
+  Enabled: false
+
+Style/GuardClause:
+  Description: 'Check for conditionals that can be replaced with guard clauses'
+  StyleGuide: 'https://github.com/bbatsov/ruby-style-guide#no-nested-conditionals'
+  Enabled: false
+
+Style/IfUnlessModifier:
+  Description: >-
+                 Favor modifier if/unless usage when you have a
+                 single-line body.
+  StyleGuide: 'https://github.com/bbatsov/ruby-style-guide#if-as-a-modifier'
+  Enabled: false
+
+Style/InlineComment:
+  Description: 'Avoid inline comments.'
+  Enabled: false
+
+Style/LineEndConcatenation:
+  Description: >-
+                 Use \ instead of + or << to concatenate two string literals at
+                 line end.
+  Enabled: false
+
+Metrics/LineLength:
+  Description: 'Limit lines to 80 characters.'
+  StyleGuide: 'https://github.com/bbatsov/ruby-style-guide#80-character-limits'
+  Max: 80
+  IgnoredPatterns: ['\A#']
+
+Metrics/MethodLength:
+  Description: 'Avoid methods longer than 10 lines of code.'
+  StyleGuide: 'https://github.com/bbatsov/ruby-style-guide#short-methods'
+  Enabled: false
+
+Layout/MultilineOperationIndentation:
+  Description: >-
+                 Checks indentation of binary operations that span more than
+                 one line.
+  Enabled: true
+  EnforcedStyle: indented
+
+Metrics/ParameterLists:
+  Description: 'Avoid parameter lists longer than three or four parameters.'
+  StyleGuide: 'https://github.com/bbatsov/ruby-style-guide#too-many-params'
+  Enabled: false
+
+Naming/PredicateName:
+  Description: 'Check the names of predicate methods.'
+  StyleGuide: 'https://github.com/bbatsov/ruby-style-guide#bool-methods-qmark'
+  NamePrefixBlacklist:
+  - is_
+  Exclude:
+  - spec/**/*
+
+Style/SingleLineMethods:
+  Description: 'Avoid single-line methods.'
+  StyleGuide: 'https://github.com/bbatsov/ruby-style-guide#no-single-line-methods'
+  Enabled: false
+
+Style/StringLiterals:
+  Description: 'Checks if uses of quotes match the configured preference.'
+  StyleGuide: 'https://github.com/bbatsov/ruby-style-guide#consistent-string-literals'
+  EnforcedStyle: double_quotes
+  Enabled: true
+
+Style/TrailingCommaInArguments:
+  # If `comma`, the cop requires a comma after the last argument, but only for
+  # parenthesized method calls where each argument is on its own line.
+  # If `consistent_comma`, the cop requires a comma after the last argument,
+  # for all parenthesized method calls with arguments.
+  EnforcedStyleForMultiline: comma
+
+Style/TrailingCommaInArrayLiteral:
+  # If `comma`, the cop requires a comma after the last item in an array or
+  # hash, but only when each item is on its own line.
+  # If `consistent_comma`, the cop requires a comma after the last item of all
+  # non-empty array and hash literals.
+  EnforcedStyleForMultiline: comma
+
+Style/TrailingCommaInHashLiteral:
+  # If `comma`, the cop requires a comma after the last item in an array or
+  # hash, but only when each item is on its own line.
+  # If `consistent_comma`, the cop requires a comma after the last item of all
+  # non-empty array and hash literals.
+  EnforcedStyleForMultiline: comma
+
+Style/WhileUntilModifier:
+  Description: >-
+                 Favor modifier while/until usage when you have a
+                 single-line body.
+  StyleGuide: 'https://github.com/bbatsov/ruby-style-guide#while-as-a-modifier'
+  Enabled: false
+
+# Lint
+
+Lint/AssignmentInCondition:
+  Description: "Don't use assignment in conditions."
+  StyleGuide: 'https://github.com/bbatsov/ruby-style-guide#safe-assignment-in-condition'
+  Enabled: false
+
