@@ -12,7 +12,7 @@ class AddClearanceToUsers < ActiveRecord::Migration[5.2]
     users = select_all("SELECT id FROM users WHERE remember_token IS NULL")
 
     say_with_time("Initialize remember tokens") do
-        users.each do |user|
+      users.each do |user|
         update <<-SQL
           UPDATE users
           SET remember_token = '#{Clearance::Token.new}'
