@@ -1,0 +1,31 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Resource Attributes</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Resource</th>
+      <th>Resource type attribute</th>
+      <th>Value</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @resource_attributes.each do |resource_attribute| %>
+      <tr>
+        <td><%= resource_attribute.resource %></td>
+        <td><%= resource_attribute.resource_type_attribute %></td>
+        <td><%= resource_attribute.value %></td>
+        <td><%= link_to 'Show', resource_attribute %></td>
+        <td><%= link_to 'Edit', edit_resource_attribute_path(resource_attribute) %></td>
+        <td><%= link_to 'Destroy', resource_attribute, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Resource Attribute', new_resource_attribute_path %>

@@ -30,3 +30,13 @@ desc "Check for security weaknesses"
 task :brakeman do
   sh "brakeman"
 end
+
+namespace :docker do
+  namespace :db do
+    task :reset do
+      sh "docker-compose stop app"
+      sh "docker-compose run --rm app bundle exec rails db:migrate:reset db:seed"
+      sh "docker-compose start app"
+    end
+  end
+end

@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_11_06_163524) do
+ActiveRecord::Schema.define(version: 2018_11_15_160126) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -28,6 +28,46 @@ ActiveRecord::Schema.define(version: 2018_11_06_163524) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.index ["priority", "run_at"], name: "delayed_jobs_priority"
+  end
+
+  create_table "providers", force: :cascade do |t|
+    t.string "name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "resource_attributes", force: :cascade do |t|
+    t.bigint "resource_id"
+    t.bigint "resource_type_attribute_id"
+    t.string "value"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["resource_id"], name: "index_resource_attributes_on_resource_id"
+    t.index ["resource_type_attribute_id"], name: "index_resource_attributes_on_resource_type_attribute_id"
+  end
+
+  create_table "resource_type_attributes", force: :cascade do |t|
+    t.string "name"
+    t.bigint "resource_type_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["resource_type_id"], name: "index_resource_type_attributes_on_resource_type_id"
+  end
+
+  create_table "resource_types", force: :cascade do |t|
+    t.string "name"
+    t.bigint "provider_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["provider_id"], name: "index_resource_types_on_provider_id"
+  end
+
+  create_table "resources", force: :cascade do |t|
+    t.string "name"
+    t.bigint "resource_type_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["resource_type_id"], name: "index_resources_on_resource_type_id"
   end
 
   create_table "users", force: :cascade do |t|
