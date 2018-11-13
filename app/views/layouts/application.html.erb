@@ -13,18 +13,28 @@
     <%= csrf_meta_tags %>
   </head>
   <body>
-    <%= render "flashes" -%>
+    <main role="main" class="container">
+    <section id="header">
+      <%= render "flashes" -%>
 
-    <% if signed_in? %>
-      Signed in as: <%= current_user.email %>
-      <%= button_to 'Sign out', sign_out_path, method: :delete %>
-    <% else %>
-      <%= link_to 'Sign in', sign_in_path %>
-    <% end %>
+      <% if signed_in? %>
+        Signed in as: <%= current_user.email %>
+        <%= button_to 'Sign out', sign_out_path, method: :delete %>
+      <% else %>
+        <%= link_to 'Sign in', sign_in_path %>
+      <% end %>
+    </section>
 
-    <%= yield %>
+    <aside class="side-nav">
+      <p><a href="/">Home</a></p>
+    </aside>
+
+    <section class="page-content">
+      <%= yield %>
+    </section>
 
     <%= render "javascript" %>
     <%= render "css_overrides" %>
+    </main>
   </body>
 </html>
