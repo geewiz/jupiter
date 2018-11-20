@@ -15,6 +15,11 @@ def create_resource_attribute(resource:, name:, value:)
   )
 end
 
+User.create(
+  email: "admin@example.com",
+  password: "admin123",
+)
+
 digital_ocean = Provider.create(
   name: "DigitalOcean",
 )

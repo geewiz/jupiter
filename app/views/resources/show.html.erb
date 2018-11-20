@@ -7,8 +7,19 @@
 
 <p>
   <strong>Resource type:</strong>
-  <%= @resource.resource_type %>
+  <%= link_to @resource.resource_type_name, resource_type_path(@resource.resource_type) %>
 </p>
+
+<h2>Attributes</h2>
+
+<table>
+  <% @resource.resource_attributes.each do |attribute| -%>
+    <tr>
+      <td><%= attribute.resource_type_attribute_name %></td>
+      <td><%= attribute.value %></td>
+    </tr>
+  <% end -%>
+</table>
 
 <%= link_to 'Edit', edit_resource_path(@resource) %> |
 <%= link_to 'Back', resources_path %>

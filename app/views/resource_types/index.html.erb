@@ -15,7 +15,7 @@
     <% @resource_types.each do |resource_type| %>
       <tr>
         <td><%= resource_type.name %></td>
-        <td><%= resource_type.provider %></td>
+        <td><%= resource_type.provider_name %></td>
         <td><%= link_to 'Show', resource_type %></td>
         <td><%= link_to 'Edit', edit_resource_type_path(resource_type) %></td>
         <td><%= link_to 'Destroy', resource_type, method: :delete, data: { confirm: 'Are you sure?' } %></td>
