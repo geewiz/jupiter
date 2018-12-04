@@ -2,5 +2,5 @@
 
 class Resource < ApplicationRecord
   belongs_to :resource_type
-  has_many :resource_attributes
+  has_many :resource_attributes, dependent: :destroy
 end

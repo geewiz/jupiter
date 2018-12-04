@@ -9,6 +9,7 @@ ruby "2.5.1"
 
 gem "autoprefixer-rails"
 gem "clearance", "~> 1.16"
+gem "hetzner-api", "~> 1.2.0"
 gem "honeybadger"
 gem "jquery-rails"
 gem "pg"

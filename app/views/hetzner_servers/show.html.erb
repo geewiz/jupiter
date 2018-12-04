@@ -1,0 +1,24 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Number:</strong>
+  <%= @hetzner_server.number %>
+</p>
+
+<p>
+  <strong>Name:</strong>
+  <%= @hetzner_server.name %>
+</p>
+
+<p>
+  <strong>Ipv4:</strong>
+  <%= @hetzner_server.ipv4 %>
+</p>
+
+<p>
+  <strong>Ipv6:</strong>
+  <%= @hetzner_server.ipv6 %>
+</p>
+
+<%= link_to 'Edit', edit_hetzner_server_path(@hetzner_server) %> |
+<%= link_to 'Back', hetzner_servers_path %>

@@ -1,0 +1,33 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Hetzner Servers</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Number</th>
+      <th>Name</th>
+      <th>Ipv4</th>
+      <th>Ipv6</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @hetzner_servers.each do |hetzner_server| %>
+      <tr>
+        <td><%= hetzner_server.number %></td>
+        <td><%= hetzner_server.name %></td>
+        <td><%= hetzner_server.ipv4 %></td>
+        <td><%= hetzner_server.ipv6 %></td>
+        <td><%= link_to 'Show', hetzner_server %></td>
+        <td><%= link_to 'Edit', edit_hetzner_server_path(hetzner_server) %></td>
+        <td><%= link_to 'Destroy', hetzner_server, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Hetzner Server', new_hetzner_server_path %>
