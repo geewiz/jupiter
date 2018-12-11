@@ -31,12 +31,9 @@ task :brakeman do
   sh "brakeman"
 end
 
-namespace :docker do
-  namespace :db do
-    task :reset do
-      sh "docker-compose stop app"
-      sh "docker-compose run --rm app bundle exec rails db:migrate:reset db:seed"
-      sh "docker-compose start app"
-    end
+namespace :db do
+  task :nuke do
+    sh "bundle exec rails db:migrate:reset db:seed"
+    sh "bundle exec rails db:migrate:reset RAILS_ENV=test"
   end
 end
