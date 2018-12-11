@@ -31,7 +31,7 @@ programming in style.
 
 To run the application locally, use Docker Compose:
 
-```
+```bash
 docker-compose up
 ```
 
@@ -56,7 +56,6 @@ TODO: explain
 ### Run deployment
 
 TODO: explain
-
 
 ### Configuration
 
