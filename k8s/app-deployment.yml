@@ -1,0 +1,39 @@
+apiVersion: extensions/v1beta1
+kind: Deployment
+metadata:
+  name: jupiter-app
+spec:
+  replicas: 2
+  template:
+    metadata:
+      labels:
+        app: jupiter-app
+    spec:
+      containers:
+      - name: railsapp
+        image: ...
+        ports:
+        - containerPort: 3000
+        env:
+          - name: POSTGRES_DB
+            valueFrom:
+              secretKeyRef:
+                name: jupiter-secrets
+                key: postgres-db
+          - name: POSTGRES_USER
+            valueFrom:
+              secretKeyRef:
+                name: jupiter-secrets
+                key: postgres-user
+          - name: POSTGRES_PASSWORD
+            valueFrom:
+              secretKeyRef:
+                name: jupiter-secrets
+                key: postgres-password
+          - name: DATABASE_URL
+            value: "postgres://$(POSTGRES_USER):$(POSTGRES_PASSWRD)@jupiter-pg/$(POSTGRES_DB)"
+          - name: SECRET_KEY_BASE
+            valueFrom:
+              secretKeyRef:
+                name: railsapp-secrets
+                key: secret-key-base

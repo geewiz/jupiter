@@ -37,13 +37,26 @@ docker-compose up
 
 The application container will respond on `http://localhost:3000`.
 
-## Deployment
+## Deployment to Kubernetes
 
-If you have previously run the `./bin/setup` script,
-you can deploy to staging and production with:
+### Create secrets
 
-    % ./bin/deploy staging
-    % ./bin/deploy production
+```bash
+kubectl create secret generic jupiter-secrets \
+  --from-literal=secret-key-base=$(bundle exec rake secret | base64) \
+  --from-literal=postgres-db=jupiter \
+  --from-literal=postgres-user=jupiter \
+  --from-literal=postgres-password=s3cr3t
+```
+
+### Create PersistentVolume
+
+TODO: explain
+
+### Run deployment
+
+TODO: explain
+
 
 ### Configuration
 
