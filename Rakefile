@@ -18,7 +18,7 @@ task default: ["bundle:audit", :rubocop, :rbp, :brakeman]
 
 desc "Run Ruby linter"
 task :rubocop do
-  sh "bundle exec rubocop ."
+  sh "bundle exec rubocop -R ."
 end
 
 desc "Check for Rails Best Practices"
