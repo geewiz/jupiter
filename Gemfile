@@ -26,6 +26,7 @@ gem "bootsnap", require: false
 
 
 group :development do
+  gem "annotate"
   gem "listen"
   gem "rack-mini-profiler", require: false
   gem "spring"
