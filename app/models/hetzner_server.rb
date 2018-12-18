@@ -1,19 +1,27 @@
 # frozen_string_literal: true
-
-# == Schema Information
+# ## Schema Information
 #
-# Table name: hetzner_servers
+# Table name: `hetzner_servers`
 #
-#  id         :bigint(8)        not null, primary key
-#  number     :integer
-#  name       :string
-#  ipv4       :string
-#  ipv6       :string
-#  created_at :datetime         not null
-#  updated_at :datetime         not null
-#  product    :string
-#  status     :string
-#  datacentre :string
+# ### Columns
+#
+# Name              | Type               | Attributes
+# ----------------- | ------------------ | ---------------------------
+# **`id`**          | `bigint(8)`        | `not null, primary key`
+# **`datacentre`**  | `string`           |
+# **`ipv4`**        | `string`           |
+# **`ipv6`**        | `string`           |
+# **`name`**        | `string`           |
+# **`number`**      | `integer`          |
+# **`product`**     | `string`           |
+# **`status`**      | `string`           |
+# **`created_at`**  | `datetime`         | `not null`
+# **`updated_at`**  | `datetime`         | `not null`
+#
+# ### Indexes
+#
+# * `index_hetzner_servers_on_number`:
+#     * **`number`**
 #
 
 class HetznerServer < ApplicationRecord
