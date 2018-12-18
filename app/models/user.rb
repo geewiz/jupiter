@@ -16,7 +16,6 @@
 #  last_name          :string(30)
 #
 
-
 class User < ApplicationRecord
   include Clearance::User
 end

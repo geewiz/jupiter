@@ -16,6 +16,5 @@
 #  datacentre :string
 #
 
-
 class HetznerServer < ApplicationRecord
 end
