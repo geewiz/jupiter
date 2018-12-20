@@ -1,6 +1,13 @@
 language: ruby
 cache: bundler
 bundler_args: --without production
+services:
+  - postgresql
+before_script:
+  - psql -c 'create database travis_ci_test;' -U postgres
+  - cp config/database.yml.travis config/database.yml
+  - bundle exec rake db:create
+  - bundle exec rake db:migrate
 deploy:
   provider: heroku
   api_key:
