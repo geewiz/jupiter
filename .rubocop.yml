@@ -12,6 +12,12 @@ AllCops:
     - 'config/**/*'
     - 'vendor/**/*'
     - 'lib/tasks/*.rake'
+Rails:
+  Enabled: true
+  Include:
+    - 'app/**/*.rb'
+  Exclude:
+    - "**/*.rb"
 
 Metrics/BlockLength:
   Description: 'Avoid blocks longer than 25 lines of code.'
