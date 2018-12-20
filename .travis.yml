@@ -1,16 +1,16 @@
 language: ruby
 cache: bundler
-bundler_args: --without production
+bundler_args: "--without production"
 services:
-  - postgresql
+- postgresql
 before_script:
-  - psql -c 'create database travis_ci_test;' -U postgres
-  - cp config/database.yml.travis config/database.yml
-  - bundle exec rake db:create
-  - bundle exec rake db:migrate
+- psql -c 'create database travis_ci_test;' -U postgres
+- cp config/database.yml.travis config/database.yml
+- bundle exec rake db:create
+- bundle exec rake db:migrate
 deploy:
   provider: heroku
   api_key:
-    secure: JhKSI3OqjpKhBZ7NKIuauQz468UxuGrRJQL4wXCaYkgbppgc85dUPPKK0FRmOSX+Fe9fLbOP4acCgcr6GpIaOcccjVKYbUAMV41b3yi6X39oBs96zMYPQmBvnKYYYiBhn6YpM/9KQ0L5W0C9LT81srttOb4oBvYKP3PE5FwYjuRiFQKs6jEBXb8oSE4fwFDNcHRK48bWN23pKSKdBJZv9oIumWYvKkhtpMcc92yjMAAQ7nDnLSZiiAvdSiQ8pMP2zyRtu1WZdGXEFx5JQF6BQKg4wwB1PzO0E9hjYgQz7EA2vOyBSHsSXSSbMB5h63ZlH46R/cjWKwiMF/ejvKBsJ2vTxBOGMGH8xWi/C3iq75VYbAXXIkXPiU8zorguBH0a/E34+iQ17rMBO1yul+YxgxA6ZxNuumE+h6VOsCxFa3yGkCT/1wXlf6tKEtMxsEgUdg4ldNewInpX+dS+ojR/KvW97CWo09u+3V3NaN9fO261pljCgqgmi83zw0vKwh9a/O5Caa3tyvlDCVHxPZOTI5GdCRsaQgu6cPQJtouQjlhF0l7muSNnMAsTr5r1T1A/Z27qPBQukank+ebwlRa4shGTxMCf4dqI8jtFEIbwuVOcG6w9Jo4G9qtr3VQFA0W82JtcZbwpwLElxHY1ywV5Yc8h3Zm/UgB47/HdjS+iq2Q=
+    secure: HpF3sgKVfq0BEbQnAvZUWC8e/HCWgW8PVi+uthxDdQ6Cw95zxsG8zPW3bs4ZnmyTU8b8i+g5Xzgf8XyoJfDWFqlWy7Ukfffo6anytbm0fVv6f5MBhLnH4u2C6NZkMI37jucH9Vyna65ZZxht32LofQxineVyF6XIpJJu/kdSkTGXVXvbnTBNH6dNF5qI4vzOGP+rGt7MAGAW6Nna5Jp1NORUwaRWBP5sblTpuFAW1h8xssYWfhEg46XvNzLLgBSyauz0VYtMOD9Xho3C5hTDjFGKMOHfuHgS5VG/5257kKqezpfx6DTXKrHDCk+DI7BY3ICA5gCyGeYgjuch5IVUmeStEdP3QinESS43KMaWXigdp+9x2ccFtqm7QobDCLQG1Wr1vOZhpF0kmkRAKrSPor/gfY5ffuDR/X1jT+v/uQyMHxTZxD0M9f133x9lpylQSy42BfeLKYRfGDk/i6f0741SA3Qi4TFnU4Tq5OMAy6xbUzqq/254UeBIb5unvjonXIu8NPEcBSwpTKif1+C62QWDbj83axuXfXsJtqEnJo1w89MKiWrHzRcxsb//EQvEe3Gfarw6gIYIMc66CselrFhT8tFDTnuNesSdcfD6ro65+dSmYdL/h3+ILsEcaD0ff50v27gUyG3JKtQphqV1ZQJ6nYpkWvFB2Pt3Oi6rdw8=
   on:
     branch: master
