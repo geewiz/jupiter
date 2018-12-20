@@ -30,6 +30,7 @@ group :development do
   gem "listen"
   gem "rack-mini-profiler", require: false
   gem "spring"
+  gem "travis"
   gem "web-console"
 end
 
